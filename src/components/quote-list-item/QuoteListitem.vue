@@ -1,0 +1,35 @@
+<template lang="">
+  <div class="quote">
+    <h5 class="quote-id">1</h5>
+    <h5 class="quote-genre mb-3">Жанр</h5>
+    <p class="quote-text">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus quas
+      ullam, ratione quis ea eius?
+    </p>
+    <h5 class="quote-author mb-3">Темур</h5>
+    <div class="quote-times d-flex mb-4">
+      <div class="created-time me-5">Создана: <br> 12-321-442</div>
+      <div class="updated-time">Обновлена: <br> 12-23423-2</div>
+    </div>
+    <div class="quote-actions d-flex">
+      <span class="fs-5 me-3 text-primary"><i class="fa-solid fa-pen-to-square"></i></span>
+      <span class="fs-5 text-danger"><i class="fa-solid fa-trash"></i></span>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style scoped>
+.quote {
+  width: 400px;
+  margin: 15px;
+  padding: 10px;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+span{
+    cursor: pointer;
+}
+</style>
