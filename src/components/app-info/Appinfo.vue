@@ -1,10 +1,19 @@
 <template>
   <div class="app-info">
-    <p class="fs-3 text-uppercase">Все цитаты:</p>
+    <p class="fs-3 text-uppercase">Все цитаты: {{ allQuotes }}</p>
   </div>
 </template>
 
-<script></script>
+<script>
+export default{
+  props:{
+    allQuotes:{
+      type:Number,
+      required:true,
+    }
+  }
+}
+</script>
 
 <style scoped>
 .app-info {

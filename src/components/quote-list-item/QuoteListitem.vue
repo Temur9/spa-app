@@ -1,14 +1,13 @@
 <template lang="">
   <div class="quote">
-    <h5 class="quote-id">{{quote.id}}</h5>
     <h5 class="quote-genre mb-3">{{quote.genre}}</h5>
     <p class="quote-text">
       {{quote.text}}
     </p>
     <h5 class="quote-author mb-3">{{quote.author}}</h5>
     <div class="quote-times d-flex mb-4">
-      <div class="created-time me-5">Создана: <br> 12-321-442</div>
-      <div class="updated-time">Обновлена: <br> 12-23423-2</div>
+      <div class="created-time me-5">Создана: <br> {{quote.createdTime}}</div>
+      <div class="updated-time">Обновлена: <br> {{quote.updatedTime}}</div>
     </div>
     <div class="quote-actions d-flex">
       <span class="fs-5 me-3 text-primary"><i class="fa-solid fa-pen-to-square"></i></span>

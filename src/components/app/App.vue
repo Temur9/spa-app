@@ -1,12 +1,12 @@
 <template>
   <div class="app font-monospace">
     <div class="content">
-      <Appinfo />
-      <QuoteAddForm />
+      <Appinfo v-bind:allQuotes="quotes.length" />
+      <QuoteAddForm @createQuote="createQuote" />
       <div class="search-panel">
         <SearchPanel />
       </div>
-      <QuoteList />
+      <QuoteList v-bind:quotes="quotes" />
     </div>
   </div>
 </template>
@@ -23,6 +23,41 @@ export default {
     SearchPanel,
     QuoteList,
     QuoteAddForm,
+  },
+  data() {
+    return {
+      quotes: [
+        {
+          id: 1,
+          genre: "Жанр",
+          text: "Lorem ipsum,впмвапвап sit amet consectetur adipisicing elit. Delectus quas ullam, ratione quis ea eius?",
+          author: "Темур",
+          createdTime:'15:23:44',
+          updatedTime:'15:23:44',
+        },
+        {
+          id: 2,
+          genre: "Жанр1",
+          text: "Lorolor sit amet consectetur adipisicing elit. Delectus quas ullam, ratione quis ea eius?",
+          author: "Жавлон",
+          createdTime:'12:23:45',
+          updatedTime:'15:23:44',
+        },
+        {
+          id: 3,
+          genre: "Жанр2",
+          text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus quas ullam, ratione quis ea eius?",
+          author: "Туламов",
+          createdTime:'11:22:33',
+          updatedTime:'15:23:44',
+        },
+      ],
+    };
+  },
+  methods: {
+    createQuote(item) {
+      this.quotes.push(item);
+    },
   },
 };
 </script>
