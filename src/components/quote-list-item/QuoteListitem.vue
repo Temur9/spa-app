@@ -17,7 +17,10 @@
     </div>
     <div class="quote-actions d-flex">
       <span class="fs-5 me-3 text-primary"
-        ><i class="fa-solid fa-pen-to-square"></i
+        ><i
+          class="fa-solid fa-pen-to-square"
+          @click="$emit('onEdit', quote.id)"
+        ></i
       ></span>
       <span class="fs-5 text-danger" @click="$emit('onRemove', quote.id)"
         ><i class="fa-solid fa-trash"></i
@@ -40,6 +43,7 @@ export default {
 <style scoped>
 .quote {
   width: 400px;
+  background-color: #edf1d6;
   margin: 15px;
   padding: 10px;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);

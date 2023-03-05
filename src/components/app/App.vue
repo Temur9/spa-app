@@ -4,9 +4,13 @@
       <Appinfo v-bind:allQuotes="quotes.length" />
       <QuoteAddForm @createQuote="createQuote" />
       <div class="search-panel">
-        <SearchPanel />
+        <SearchPanel v-bind:updateTermHandler="updateTermHandler" />
       </div>
-      <QuoteList v-bind:quotes="quotes" @onRemove="onRemoveHandler" />
+      <QuoteList
+        v-bind:quotes="onSearchHandler(quotes, term)"
+        @onRemove="onRemoveHandler"
+        @onEdit="onEditHandler"
+      />
     </div>
   </div>
 </template>
@@ -52,14 +56,41 @@ export default {
           updatedTime: "15:23:44",
         },
       ],
+      term: "",
+      quote: "",
+      editedQuote: null,
     };
   },
   methods: {
+    // Функция для добавления новуя цитату
     createQuote(item) {
       this.quotes.push(item);
     },
+
+    // Функция для удаления цитаты
     onRemoveHandler(id) {
-      this.quotes = this.quotes.filter((c) => c.id !== id);
+      
+      if (confirm("Хотите удалить?")) {
+        this.quotes = this.quotes.filter((c) => c.id !== id);
+      }
+      return quotes;
+    },
+
+    // Функция для поиска цитаты
+    onSearchHandler(arr, term) {
+      if (term.length === 0) {
+        return arr;
+      }
+      return arr.filter((c) => c.author.toLowerCase().indexOf(term) > -1);
+    },
+    updateTermHandler(term) {
+      this.term = term;
+    },
+
+    // Функция для изменения
+    onEditHandler(index) {
+      this.quote = this.quotes[index].genre;
+      this.editedQuote = index;
     },
   },
 };
@@ -71,7 +102,7 @@ export default {
   color: #000;
 }
 .content {
-  width: 1000px;
+  max-width: 1000px;
   min-height: 700px;
   background-color: #fff;
   margin: 0 auto;
@@ -80,7 +111,7 @@ export default {
 .search-panel {
   margin-top: 2rem;
   padding: 1.5rem;
-  background-color: #fcfaf5;
+  background-color: #def5e5;
   border-radius: 4px;
   box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.15);
 }

@@ -4,7 +4,8 @@
       v-for="quote in quotes"
       v-bind:quote="quote"
       :key="quote.id"
-      @onRemove='$emit("onRemove", quote.id)'
+      @onRemove="$emit('onRemove', quote.id)"
+      @onEdit="$emit('onEdit', index)"
     />
   </div>
 </template>
@@ -28,7 +29,7 @@ export default {
 .quotes {
   margin: 2rem;
   padding: 1.5rem;
-  background-color: #fcfaf5;
+  background-color: #bcead5;
   border-radius: 4px;
   box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.15);
 }
