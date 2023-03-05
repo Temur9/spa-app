@@ -6,7 +6,7 @@
       <div class="search-panel">
         <SearchPanel />
       </div>
-      <QuoteList v-bind:quotes="quotes" />
+      <QuoteList v-bind:quotes="quotes" @onRemove="onRemoveHandler" />
     </div>
   </div>
 </template>
@@ -32,24 +32,24 @@ export default {
           genre: "Жанр",
           text: "Lorem ipsum,впмвапвап sit amet consectetur adipisicing elit. Delectus quas ullam, ratione quis ea eius?",
           author: "Темур",
-          createdTime:'15:23:44',
-          updatedTime:'15:23:44',
+          createdTime: "15:23:44",
+          updatedTime: "15:23:44",
         },
         {
           id: 2,
           genre: "Жанр1",
           text: "Lorolor sit amet consectetur adipisicing elit. Delectus quas ullam, ratione quis ea eius?",
           author: "Жавлон",
-          createdTime:'12:23:45',
-          updatedTime:'15:23:44',
+          createdTime: "12:23:45",
+          updatedTime: "15:23:44",
         },
         {
           id: 3,
           genre: "Жанр2",
           text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus quas ullam, ratione quis ea eius?",
           author: "Туламов",
-          createdTime:'11:22:33',
-          updatedTime:'15:23:44',
+          createdTime: "11:22:33",
+          updatedTime: "15:23:44",
         },
       ],
     };
@@ -57,6 +57,9 @@ export default {
   methods: {
     createQuote(item) {
       this.quotes.push(item);
+    },
+    onRemoveHandler(id) {
+      this.quotes = this.quotes.filter((c) => c.id !== id);
     },
   },
 };

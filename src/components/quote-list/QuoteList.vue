@@ -1,6 +1,11 @@
 <template lang="">
   <div class="quotes d-flex flex-wrap justify-content-center">
-    <QuoteListitem v-for="quote in quotes" v-bind:quote="quote" :key="quote.id"/>
+    <QuoteListitem
+      v-for="quote in quotes"
+      v-bind:quote="quote"
+      :key="quote.id"
+      @onRemove='$emit("onRemove", quote.id)'
+    />
   </div>
 </template>
 
