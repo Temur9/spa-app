@@ -1,14 +1,38 @@
 <template lang="">
   <div class="quotes d-flex flex-wrap justify-content-center">
-    <QuoteListitem/>
+    <QuoteListitem v-for="quote in quotes" v-bind:quote='quote' />
   </div>
 </template>
 
 <script>
-import QuoteListitem from '../quote-list-item/QuoteListitem.vue';
+import QuoteListitem from "../quote-list-item/QuoteListitem.vue";
 export default {
-  components:{
+  components: {
     QuoteListitem,
+  },
+  data() {
+    return {
+      quotes: [
+        {
+          id: 1,
+          genre: "Жанр",
+          text: "Lorem ipsum,впмвапвап sit amet consectetur adipisicing elit. Delectus quas ullam, ratione quis ea eius?",
+          author: "Темур",
+        },
+        {
+          id: 2,
+          genre: "Жанр1",
+          text: "Lorolor sit amet consectetur adipisicing elit. Delectus quas ullam, ratione quis ea eius?",
+          author: "Жавлон",
+        },
+        {
+          id: 3,
+          genre: "Жанр2",
+          text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus quas ullam, ratione quis ea eius?",
+          author: "Туламов",
+        },
+      ],
+    };
   },
 };
 </script>

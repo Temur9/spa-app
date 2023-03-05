@@ -1,12 +1,11 @@
 <template lang="">
   <div class="quote">
-    <h5 class="quote-id">1</h5>
-    <h5 class="quote-genre mb-3">Жанр</h5>
+    <h5 class="quote-id">{{quote.id}}</h5>
+    <h5 class="quote-genre mb-3">{{quote.genre}}</h5>
     <p class="quote-text">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus quas
-      ullam, ratione quis ea eius?
+      {{quote.text}}
     </p>
-    <h5 class="quote-author mb-3">Темур</h5>
+    <h5 class="quote-author mb-3">{{quote.author}}</h5>
     <div class="quote-times d-flex mb-4">
       <div class="created-time me-5">Создана: <br> 12-321-442</div>
       <div class="updated-time">Обновлена: <br> 12-23423-2</div>
@@ -19,7 +18,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props:{
+    quote:{
+      type:Object,
+      required:true,
+    }
+  }
+};
 </script>
 
 <style scoped>
